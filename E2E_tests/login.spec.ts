@@ -29,8 +29,7 @@ test.describe("Login tests", () => {
     const userName = "standard_user";
     await loginPage.login(userName, userPassword);
     //Act
-    await pulpitPage.menuButton.click();
-    await pulpitPage.logoutLink.click();
+    await pulpitPage.logout();
     //Assert
     await expect(loginPage.loginButton).toBeVisible();
   });
@@ -38,7 +37,6 @@ test.describe("Login tests", () => {
   test("unsuccessful login with locked out user name", async ({ page }) => {
     //Arrange
     const userName = "locked_out_user";
-    const userPassword = "secret_sauce";
     const expectedErrorMessage =
       "Epic sadface: Sorry, this user has been locked out.";
     //Act
