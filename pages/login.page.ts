@@ -6,9 +6,7 @@ export class LoginPage {
   loginInput = this.page.locator('[data-test="username"]');
   passwordInput = this.page.locator('[data-test="password"]');
   loginButton = this.page.locator('[data-test="login-button"]');
-  acceptedUsernameHeader = this.page.getByRole("heading", {
-    name: "Accepted usernames are:",
-  });
+  errorMessage = this.page.locator('[data-test="error"]');
 
   async login(userId: string, userPassword: string): Promise<void> {
     await this.loginInput.fill(userId);
